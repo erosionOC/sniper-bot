@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SniperBot Controller</string>
+    <string name="action_settings">Settings</string>
+
+    //temp
+    <string name="camera_placeholder">Camera</string>
+
+</resources>

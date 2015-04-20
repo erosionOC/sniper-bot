@@ -1,0 +1,44 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sniperbot.sniperbotcontroller.AimFragment"
+    android:id="@id/fragment_aim">
+
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="&lt;"
+        android:id="@+id/aimLeft"
+        android:layout_gravity="left|center_vertical" />
+
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="^"
+        android:id="@+id/aimUp"
+        android:layout_gravity="center_horizontal|top"
+        android:longClickable="false" />
+
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="*"
+        android:id="@+id/aimDown"
+        android:layout_gravity="center_horizontal|bottom" />
+
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="&gt;"
+        android:id="@+id/aimRight"
+        android:layout_gravity="right|center_vertical" />
+
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="F"
+        android:id="@+id/fire"
+        android:layout_gravity="center" />
+
+</FrameLayout>
