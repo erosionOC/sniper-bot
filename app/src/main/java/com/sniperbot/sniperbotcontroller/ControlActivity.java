@@ -4,9 +4,15 @@
 
 package com.sniperbot.sniperbotcontroller;
 
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothSocket;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,14 +20,43 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 
+import java.io.IOException;
+
 
 public class ControlActivity extends ActionBarActivity {
+    // Debugging
+    private static final String TAG = "ControlActivity";
+    private static final boolean D = true;
+
+    //local bluetooth adapter
+    private BluetoothAdapter mBluetoothAdapter = null;
+    //Object for bluetooth services
+    private BluetoothService mBluetoothService = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_control);
+        // Get device bluetooth adapter
+        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if(D) Log.e(TAG, "++ ON START ++");
+        // If BT is not on, request that it be enabled.
+        // setupChat() will then be called during onActivityResult
+            if (mBluetoothService == null) setupController();
+    }
+
+    private void setupController() {
+        mBluetoothService = new BluetoothService(this, mHandler);
+    }
+
+    private final Handler mHandler = new Handler() {
+        //code handler logic here
+    };
 
 
     @Override
@@ -43,5 +78,4 @@ public class ControlActivity extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }
