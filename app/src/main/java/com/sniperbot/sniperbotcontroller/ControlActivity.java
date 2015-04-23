@@ -45,9 +45,8 @@ public class ControlActivity extends ActionBarActivity {
     public void onStart() {
         super.onStart();
         if(D) Log.e(TAG, "++ ON START ++");
-        // If BT is not on, request that it be enabled.
         // setupChat() will then be called during onActivityResult
-            if (mBluetoothService == null) setupController();
+        if (mBluetoothService == null) setupController();
     }
 
     private void setupController() {
